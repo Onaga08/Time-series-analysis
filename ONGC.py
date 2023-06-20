@@ -14,4 +14,4 @@ for i in range(len(time_stamps)):
     time_stamp = time_stamps[i]
     amplitude = amplitudes[i]
     phase_angle = calculate_phase_angle(time_stamp, amplitude)
-    print(f"Phase angle at time stamp {time_stamp} millisecond: {round(phase_angle,2)} degrees")
+    print(f"Phase angle at time stamp {time_stamp} millisecond: {round(phase_angle,3)} degrees")
