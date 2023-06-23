@@ -8,10 +8,12 @@ from scipy.signal import correlate
 def calculate_correlation_percentage(signal1, signal3):
     # Method 1: Using numpy.correlate
     correlation_np = np.correlate(signal1, signal3, mode='valid')
+    print(correlation_np)
     correlation_percentage_np = (correlation_np.max() / np.sqrt(np.sum(np.square(signal1)) * np.sum(np.square(signal2)))) * 100
 
     # Method 2: Using scipy.signal.correlate
     correlation_scipy = correlate(signal1, signal3, mode='full')
+    print(correlation_scipy)
     correlation_percentage_scipy = (correlation_scipy.max() / np.sqrt(np.sum(np.square(signal1)) * np.sum(np.square(signal2)))) * 100
 
     # Method 3: Manual cross-correlation calculation
@@ -27,7 +29,7 @@ def calculate_correlation_percentage(signal1, signal3):
 
 signal1 = np.array([-0.393105, -0.822565, -1.32783, -1.84869, -2.30533, -2.52846, -2.40997, -1.97941, -1.24355, -0.517542, 0.0990675, 1.13414, 2.17622, 3.01957, 3.55358, 3.72256, 3.47835, 2.7966, 1.96388, 1.23775])
 signal2 = np.array([-0.013995, -0.0186956, -0.0275364, -0.0311656, -0.0149192, 0.0346624, 0.12169, 0.23547, 0.351297, 0.438163, 0.470425, 0.438163, 0.351297, 0.23547, 0.12169, 0.0346624, -0.0149192, -0.0311656, -0.0275364, -0.0186956])
-signal3=np.array([-0.0413589, -0.0744249, -0.108228, -0.161074, -0.224722, -0.291076, -0.334128, -0.333282, -0.271283, -0.153474, -0.00260863, 0.153474, 0.271283, 0.333282, 0.334128, 0.291076, 0.224722, 0.161074, 0.108228,0.0744249])
+signal3 = np.array([-0.013995, -0.0186956, -0.0275364, -0.0311656, -0.0149192, 0.0346624, 0.12169, 0.23547, 0.351297, 0.438163, 0.470425, 0.438163, 0.351297, 0.23547, 0.12169, 0.0346624, -0.0149192, -0.0311656, -0.0275364, -0.0186956])
 correlation_percentage_np, correlation_percentage_scipy, correlation_percentage_manual = calculate_correlation_percentage(signal1, signal3)
 
 print("Correlation Percentage using numpy.correlate:", correlation_percentage_np)
