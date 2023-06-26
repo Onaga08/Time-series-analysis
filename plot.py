@@ -1,3 +1,7 @@
+#While working for ONGC, I recieved three wavelets of 40 millisecond signal length. 
+#Plotting these wavelets and finding the correlation between them is the purpose of the code.
+#The input of these time-series is taken as a list of Amplitudes inside the code itself. 
+
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -18,7 +22,7 @@ plt.ylabel('Amplitudes')
 plt.title('Wave 1990-2030')
 
 Time_comp = list(range(42, 81, 2))
-Amplitudes_comp = [-0.0413589, -0.0744249, -0.108228, -0.161074, -0.224722, -0.291076, -0.334128, -0.333282, -0.271283, -0.153474, -0.00260863, 0.153474, 0.271283, 0.333282, 0.334128, 0.291076, 0.224722, 0.161074, 0.108228, 0.0744249]
+Amplitudes_comp = [-0.0413589, -0.0744249, -0.108228, -0.161074, -0.224722, -0.291076, -0.334128, -0.333282, -0.271283, -0.153474, -0.00260863, 0.153474, 0.271283, 0.333282, 0.334128, 0.291076, 0.224722, 0.161074, 0.108228,0.0744249]
 plt.subplot(1,3,3)
 plt.plot(Time_comp, Amplitudes_comp)
 plt.xlabel('Time-stamps')
@@ -27,15 +31,15 @@ plt.title('Default Wave')
 plt.tight_layout()
 
 
-cross_corr1 = np.correlate(Amplitudes1, Amplitudes_comp)
-percentage = (cross_corr1.max() / (np.linalg.norm(Amplitudes1) * np.linalg.norm(Amplitudes_comp))) * 100
+cross_corr1 = np.correlate(Amplitudes1, Amplitudes_comp, mode= 'valid')
+percentage1 = (cross_corr1.max() / (np.linalg.norm(Amplitudes1) * np.linalg.norm(Amplitudes_comp))) * 100
 
 
-print("Cross-Correlation Percentage with 1530-1571: {:.2f}%".format(percentage))
+print("Cross-Correlation Percentage with 1530-1571: {:.2f}%".format(percentage1))
 
-cross_corr2 = np.correlate(Amplitudes2, Amplitudes_comp)
-percentage = (cross_corr2.max() / (np.linalg.norm(Amplitudes2) * np.linalg.norm(Amplitudes_comp))) * 100
+cross_corr2 = np.correlate(Amplitudes2, Amplitudes_comp, mode='valid')
+percentage2 = (cross_corr2.max() / (np.linalg.norm(Amplitudes2) * np.linalg.norm(Amplitudes_comp))) * 100
 
 
-print("Cross-Correlation Percentage with 1990-2031: {:.2f}%".format(percentage))
+print("Cross-Correlation Percentage with 1990-2031: {:.2f}%".format(percentage2))
 plt.show()
