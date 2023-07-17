@@ -21,7 +21,7 @@ for i in range(len(time_stamps)):
     phase_angles.append(phase_angle)
     print(f"Phase angle at time stamp {time_stamp} millisecond: {phase_angle} degrees")
 print(phase_angles)
-plt.plot(time_stamps, phase_angles, 'o')
+plt.plot(time_stamps, phase_angles)
 plt.xlabel('Time-stamps')
 plt.ylabel('Phase_angles')
 plt.show()
