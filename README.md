@@ -15,7 +15,7 @@ The objective of this project is to locate the area of interests pointing to the
       <li>By analysing time series data, seismic data processing experts can extract critical information about the subsurface geological structures and the presence of potential hydrocarbon reservoirs. These time-dependent variations in ground motion, captured by the time series data, provide valuable insights into the behaviour and characteristics of the subsurface.</li>
 </ul>
 
-<img src="img/time-series.png">
+![Time-series example](img/time-series.png)
  	
  	
 
